@@ -11,7 +11,7 @@ export const contactUser = createSlice({
       state.items.push(action.payload);
     },
     removeContacts(state, action) {
-      return state.items.filter(item => item.id !== action.payload);
+      state.items = state.items.filter(item => item.id !== action.payload);
     },
     filterContacts(state, action) {
       state.filter = action.payload;
@@ -19,4 +19,5 @@ export const contactUser = createSlice({
   },
 });
 
-export const { addContacts, removeContacts, filterContacts } = contactUser.actions;
+export const { addContacts, removeContacts, filterContacts } =
+  contactUser.actions;

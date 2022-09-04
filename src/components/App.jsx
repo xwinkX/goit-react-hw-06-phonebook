@@ -1,13 +1,13 @@
 import { nanoid } from 'nanoid';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 import { useDispatch } from 'react-redux';
 import {
   addContacts,
-  removeContacts,
-  filterContacts,
+  // removeContacts,
+  // filterContacts,
 } from 'redux/contactUser/contactUser';
 import { useSelector } from 'react-redux';
 
@@ -16,7 +16,7 @@ export default function App() {
   // const [filter, setFilter] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contact.items);
-  const filter = useSelector(state => state.contact.filter);
+  // const filter = useSelector(state => state.contact.filter);
 
   const addContact = data => {
     const dataContact = {
@@ -38,22 +38,7 @@ export default function App() {
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
-  const changeFilter = event => {
-    dispatch(filterContacts(event.currentTarget.value));
-  };
 
-  const getVisibleContacts = () => {
-    // const normalizedFilter = filter.toLowerCase();
-    // return contacts.filter(contact =>
-    //   contact.name.toLowerCase().includes(normalizedFilter)
-    // );
-  };
-
-  const deleteContacts = id => {
-    dispatch(removeContacts(id));
-  };
-
-  const visibleContacts = getVisibleContacts();
   return (
     <div
       style={{
@@ -68,11 +53,8 @@ export default function App() {
       <h1>Phonebook</h1>
       <ContactForm onSubmit={addContact} />
       <h2>Contacts</h2>
-      <Filter value={filter} onChange={changeFilter} />
-      <ContactList
-        contacts={visibleContacts}
-        onDeleteContacts={deleteContacts}
-      />
+      <Filter />
+      <ContactList />
     </div>
   );
 }
