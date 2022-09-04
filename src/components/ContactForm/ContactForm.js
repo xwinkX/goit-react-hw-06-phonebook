@@ -2,8 +2,11 @@ import css from 'components/ContactForm/ContactForm.module.css';
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { addContacts } from 'redux/contactUser/contactUser';
 
 export default function ContactForm({ onSubmit }) {
+  const dispatch = useDispatch()
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 

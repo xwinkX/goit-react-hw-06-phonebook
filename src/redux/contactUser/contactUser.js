@@ -14,7 +14,10 @@ export const contactUser = createSlice({
       state.items = state.items.filter(item => item.id !== action.payload);
     },
     filterContacts(state, action) {
-      state.filter = action.payload;
+      const normalizedFilter = action.payload.toLowerCase();
+      state.items = state.items.filter(contact =>
+        contact.name.toLowerCase().includes(normalizedFilter)
+      );
     },
   },
 });

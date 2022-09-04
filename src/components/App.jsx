@@ -6,18 +6,13 @@ import Filter from './Filter/Filter';
 import { useDispatch } from 'react-redux';
 import {
   addContacts,
-  // removeContacts,
-  // filterContacts,
 } from 'redux/contactUser/contactUser';
 import { useSelector } from 'react-redux';
 
 export default function App() {
-  // const [contacts, setContacts] = useState(() => JSON.parse(localStorage.getItem('contacts')) ?? []);
-  // const [filter, setFilter] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contact.items);
-  // const filter = useSelector(state => state.contact.filter);
-
+ 
   const addContact = data => {
     const dataContact = {
       id: nanoid(),
