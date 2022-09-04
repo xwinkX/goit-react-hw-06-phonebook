@@ -5,7 +5,6 @@ import { filterContacts } from 'redux/contactUser/contactUser';
 
 const Filter = () => {
   const dispatch = useDispatch();
-
   return (
     <>
       <h2 className={css.h2}>Find contacts by name</h2>
@@ -21,8 +20,3 @@ const Filter = () => {
   );
 };
 export default Filter;
-
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};

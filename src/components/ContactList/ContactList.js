@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
 const ContactList = () => {
-   const contacts = useSelector(state => state.contact.items);
-    return (
+  const contacts = useSelector(state => state.contact.items);
+  return (
     <ul className={css.ul}>
       {contacts.map(({ id, name, number }) => (
         <ContactItem key={id} id={id} name={name} number={number} />
@@ -15,8 +15,7 @@ const ContactList = () => {
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string).isRequired),
-  onDeleteContacts: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default ContactList;
