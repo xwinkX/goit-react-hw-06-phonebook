@@ -1,21 +1,18 @@
 import css from 'components/ContactForm/ContactForm.module.css';
-import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContacts } from 'redux/contactUser/contactUser';
 
 export default function ContactForm() {
   const dispatch = useDispatch();
-  const formId = nanoid();
   const contacts = useSelector(state => state.contact.items);
 
   const formSubmit = event => {
     const form = event.currentTarget;
     event.preventDefault();
     const dataContact = {
-      id: nanoid(),
       name: form.elements.name.value,
-      number: form.elements.number.valur,
+      number: form.elements.number.value,
     };
 
     const repeatContacts = contacts.find(
@@ -33,7 +30,7 @@ export default function ContactForm() {
   return (
     <form className={css.contactForm} onSubmit={formSubmit}>
       <h2>Name</h2>
-      <label htmlFor={formId}>
+      <label>
         <input
           type="text"
           name="name"
@@ -43,7 +40,7 @@ export default function ContactForm() {
         />
       </label>
       <h2>Number</h2>
-      <label htmlFor={formId}>
+      <label>
         <input
           type="tel"
           name="number"
