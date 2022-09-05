@@ -23,7 +23,7 @@ export const contactUser = createSlice({
     removeContacts(state, action) {
       state.items = state.items.filter(item => item.id !== action.payload);
     },
-    filterContacts(state, action) {
+    filterContacts: (state, action) => {
       const normalizedFilter = action.payload.toLowerCase();
       state.items = state.items.filter(contact =>
         contact.name.toLowerCase().includes(normalizedFilter)
