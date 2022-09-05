@@ -1,5 +1,5 @@
 import css from 'components/Filter/Filter.module.css';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { filterContacts } from 'redux/contactUser/contactUser';
 
