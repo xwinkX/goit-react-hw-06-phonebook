@@ -24,10 +24,15 @@ export const contactUser = createSlice({
       state.items = state.items.filter(item => item.id !== action.payload);
     },
     filterContacts: (state, action) => {
-      const normalizedFilter = action.payload.toLowerCase();
-      state.items = state.items.filter(contact =>
+      state.filter = action.payload;
+      if (!state.filter) {
+        return state.items;
+      }
+      const normalizedFilter = state.filter.toLowerCase();
+      const result = state.items.filter(contact =>
         contact.name.toLowerCase().includes(normalizedFilter)
       );
+      return result;
     },
   },
 });
