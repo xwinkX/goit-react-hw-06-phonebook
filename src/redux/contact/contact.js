@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
-export const contactUser = createSlice({
+export const contact = createSlice({
   name: 'contact',
   initialState: {
     items: [],
@@ -25,17 +25,8 @@ export const contactUser = createSlice({
     },
     filterContacts: (state, action) => {
       state.filter = action.payload;
-      if (!state.filter) {
-        return state.items;
-      }
-      const normalizedFilter = state.filter.toLowerCase();
-      const result = state.items.filter(contact =>
-        contact.name.toLowerCase().includes(normalizedFilter)
-      );
-      return result;
     },
   },
 });
 
-export const { addContacts, removeContacts, filterContacts } =
-  contactUser.actions;
+export const { addContacts, removeContacts, filterContacts } = contact.actions;
